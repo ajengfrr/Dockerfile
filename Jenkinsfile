@@ -18,7 +18,7 @@ pipeline{
                 sh '''
                 name=$(docker ps -a | awk '{print $NF}' | grep bunglonrebah)
                 if [ "$name" == "bunglonrebah" ]; then
-                    docker rm bunglonrebah
+                    docker rm -f bunglonrebah
                 fi
                 docker run --name bunglonrebah -d -p 81:80 bunglonrebah/intern:v1
                 '''
