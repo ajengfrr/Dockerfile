@@ -13,6 +13,14 @@ pipeline{
                 '''
             }
         }
+        stage("Create Container"){
+            steps{
+                sh '''
+                docker run --name bunglonrebah -d -p 81:80 bunglonrebah/intern:v1
+                '''
+            }
+        }
+        
         stage("Push Image"){
             steps{
                 sh '''
