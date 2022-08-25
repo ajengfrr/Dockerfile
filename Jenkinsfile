@@ -9,7 +9,7 @@ pipeline{
         stage("Create Image"){
             steps{
                 sh '''
-                docker build -t bunglonrebah/intern:v1 .
+                docker build -t intern:v1 .
                 '''
             }
         }
@@ -19,7 +19,7 @@ pipeline{
                 set +x
                 docker login --username=bunglonrebah --password=$dockerPassword
                 set -x
-                docker push bunglonrebah/intern:v1
+                docker push intern:v1
                 '''
             }
         }
